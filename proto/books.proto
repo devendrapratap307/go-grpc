@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package books;
+option go_package = "proto/books;books";
+
+service BookService {
+  rpc CreateBook(Book) returns (Book);
+  rpc GetBook(BookID) returns (Book);
+  rpc ListBooks(Empty) returns (BookList);
+  rpc UpdateBook(Book) returns (Book);
+  rpc DeleteBook(BookID) returns (Empty);
+}
+
+message Book {
+  uint32 id = 1;
+  string title = 2;
+  string author = 3;
+  int32 year = 4;
+  string publisher = 5;
+}
+
+message BookID {
+  uint32 id = 1;
+}
+
+message Empty {}
+
+message BookList {
+  repeated Book books = 1;
+}
