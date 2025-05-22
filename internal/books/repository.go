@@ -29,6 +29,7 @@ func (r *repo) GetBook(id uint) (*Book, error) {
 }
 
 func (r *repo) CreateBook(book *Book) error {
+	println("book created# :====>", book.Title, book.Author, book.Year, book.Publisher)
 	return r.db.Create(book).Error
 }
 
