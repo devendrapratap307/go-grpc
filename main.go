@@ -7,8 +7,8 @@ func main() {
 	// server.StartREST()
 
 	// Start gRPC server
-	server.StartGRPC()
+	go server.StartGRPC() // Start gRPC server in a goroutine to avoid blocking
 
 	// gRPC client
-	// server.StartGrpcREST()
+	server.StartGrpcREST()
 }
